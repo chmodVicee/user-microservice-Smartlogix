@@ -25,11 +25,11 @@ public class AuthService {
 
     public AuthResponse register (RegisterRequest request) {
 
-        if (userRepository.existByUsername(request.getUsername())) {
+        if (userRepository.existsByUsername(request.getUsername())) {
             throw new UserAlreadyExistsException("Ya se ha utilizado el username de: " + request.getUsername());
         }
 
-        if (userRepository.existByEmail(request.getEmail())) {
+        if (userRepository.existsByEmail(request.getEmail())) {
             throw new UserAlreadyExistsException("Ya se ha utilizado el email de: "+ request.getEmail());
         }
 
