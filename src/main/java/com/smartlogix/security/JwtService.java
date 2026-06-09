@@ -27,9 +27,8 @@ public class JwtService {
         return generateToken(new HashMap<>(), userDetails);
     }
 
-    private SecretKey getSigningKey(){
-        byte[] keyBytes = Decoders.BASE64.decode(secretKey);
-
+    private SecretKey getSigningKey() {
+        byte[] keyBytes = secretKey.getBytes(java.nio.charset.StandardCharsets.UTF_8);
         return Keys.hmacShaKeyFor(keyBytes);
     }
 

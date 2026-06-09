@@ -23,7 +23,6 @@ public class UserController {
         return ResponseEntity.ok(userService.getProfile());
     }
 
-    //solo el usuario ADMIN puede listar a todos los usuarios
     @GetMapping
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<List<UserResponse>> getAllUsers() {
